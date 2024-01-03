@@ -1,17 +1,24 @@
-def solver(input_string):
-    i = 1
-    index, i = 0, 1
-    input_list = []
-    while index < len(input_string):
-        temp_list = []
-        for j in range(i):
-            temp_list.append(int(input_string[index]))
-            index += 1
-        input_list.append(temp_list)
-        i+=1
+"""python program to find maximum sum"""
 
-    for i in input_list:
-        print(i)
+
+def find_length(input_list, ans, max_sum, i, j):
+    """recursive function to find maximum sum"""
+    if i >= len(input_list):
+        return max_sum
+    ans += input_list[i][j]
+    max_sum = find_length(input_list, ans, max_sum, i + 1, j)
+    max_sum = find_length(input_list, ans, max_sum, i + 1, j + 1)
+    if ans > max_sum:
+        max_sum = ans
+    return max_sum
+
+
+def solver(input_list):
+    """main function"""
+    ans, max_sum = 0, 0
+    max_sum = find_length(input_list, ans, max_sum, 0, 0)
+    return max_sum
+
 
 if __name__ == "__main__":
-    print(solver('1234567898'))
+    print(solver([[1], [2, 3], [4, 5, 6], [7, 8, 9, 8]]))
