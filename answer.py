@@ -20,10 +20,7 @@ def answer():
 63 66 04 68 89 53 67 30 73 16 69 87 40 31
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"""
 
-    temp = input_string.split("\n")
-    temp_list = [i.split() for i in temp]
-    input_list = [[int(i) for i in j] for j in temp_list]
-    return solver(input_list)
+    return solver(input_string)
 
 
 if __name__ == "__main__":
