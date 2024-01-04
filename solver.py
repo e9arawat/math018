@@ -13,10 +13,9 @@ def find_length(input_list, ans, max_sum, i, j):
     
 def solver(input_string: str = None):
     """main function"""
-    if input_string: # if the input is given in form of a string then this if block will convert it into a 2D grid
-        temp = input_string.split("\n")
-        temp_list = [i.split() for i in temp]
-        input_list = [[int(i) for i in j] for j in temp_list]
+    temp = input_string.split("\n")
+    temp_list = [i.split() for i in temp]
+    input_list = [[int(i) for i in j] for j in temp_list]
     ans, max_sum = 0, 0
     max_sum = find_length(input_list, ans, max_sum, 0, 0)
     return max_sum
